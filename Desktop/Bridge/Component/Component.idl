@@ -1,4 +1,4 @@
-﻿import "Windows.Foundation.idl";
+import "Windows.Foundation.idl";
 
 namespace Component
 {

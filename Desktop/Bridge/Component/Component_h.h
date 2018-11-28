@@ -38,7 +38,7 @@
 // If you get an error from the compiler indicating "warning C4005: 'CHECK_NS_PREFIX_STATE': macro redefinition", this
 // indicates that you have included two different headers with different settings for the /ns_prefix MIDL command line switch
 #if !defined(DISABLE_NS_PREFIX_CHECKS)
-#define CHECK_NS_PREFIX_STATE "never"
+#define CHECK_NS_PREFIX_STATE "always"
 #endif // !defined(DISABLE_NS_PREFIX_CHECKS)
 
 
@@ -84,22 +84,27 @@
 #include "Windows.Foundation.h"
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
+#if defined(__MIDL_USE_C_ENUM)
+#define MIDL_ENUM enum
+#else
+#define MIDL_ENUM enum class
+#endif
 /* Forward Declarations */
-#ifndef ____x_Component_CIButton_FWD_DEFINED__
-#define ____x_Component_CIButton_FWD_DEFINED__
+#ifndef ____x_ABI_CComponent_CIButton_FWD_DEFINED__
+#define ____x_ABI_CComponent_CIButton_FWD_DEFINED__
+namespace ABI {
+    namespace Component {
+        interface IButton;
+    } /* Component */} /* ABI */
+#define __x_ABI_CComponent_CIButton ABI::Component::IButton
 
-namespace Component {
-    interface IButton;
-} /* Component */
-#define __x_Component_CIButton Component::IButton
-
-#endif // ____x_Component_CIButton_FWD_DEFINED__
+#endif // ____x_ABI_CComponent_CIButton_FWD_DEFINED__
 
 
-
-namespace Component {
-    class Button;
-} /* Component */
+namespace ABI {
+    namespace Component {
+        class Button;
+    } /* Component */} /* ABI */
 
 
 
@@ -111,28 +116,28 @@ namespace Component {
  *
  *
  */
-#if !defined(____x_Component_CIButton_INTERFACE_DEFINED__)
-#define ____x_Component_CIButton_INTERFACE_DEFINED__
+#if !defined(____x_ABI_CComponent_CIButton_INTERFACE_DEFINED__)
+#define ____x_ABI_CComponent_CIButton_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Component_IButton[] = L"Component.IButton";
+namespace ABI {
+    namespace Component {
+        /* [object, exclusiveto, uuid("461c8806-8bc2-4622-8eac-b547c39f867e"), version] */
+        MIDL_INTERFACE("461c8806-8bc2-4622-8eac-b547c39f867e")
+        IButton : public IInspectable
+        {
+        public:
+            /* [propget] */virtual HRESULT STDMETHODCALLTYPE get_Text(
+                /* [retval, out] */HSTRING * value
+                ) = 0;
+            
+        };
 
-namespace Component {
-    /* [object, exclusiveto, uuid("461c8806-8bc2-4622-8eac-b547c39f867e"), version] */
-    MIDL_INTERFACE("461c8806-8bc2-4622-8eac-b547c39f867e")
-    IButton : public IInspectable
-    {
-    public:
-        /* [propget] */virtual HRESULT STDMETHODCALLTYPE get_Text(
-            /* [retval, out] */HSTRING * value
-            ) = 0;
+        extern MIDL_CONST_ID IID & IID_IButton=_uuidof(IButton);
         
-    };
+    } /* Component */} /* ABI */
 
-    extern MIDL_CONST_ID IID & IID_IButton=_uuidof(IButton);
-    
-} /* Component */
-
-EXTERN_C const IID IID___x_Component_CIButton;
-#endif /* !defined(____x_Component_CIButton_INTERFACE_DEFINED__) */
+EXTERN_C const IID IID___x_ABI_CComponent_CIButton;
+#endif /* !defined(____x_ABI_CComponent_CIButton_INTERFACE_DEFINED__) */
 
 
 /*
@@ -154,11 +159,11 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Componen
 
 #else // !defined(__cplusplus)
 /* Forward Declarations */
-#ifndef ____x_Component_CIButton_FWD_DEFINED__
-#define ____x_Component_CIButton_FWD_DEFINED__
-typedef interface __x_Component_CIButton __x_Component_CIButton;
+#ifndef ____x_ABI_CComponent_CIButton_FWD_DEFINED__
+#define ____x_ABI_CComponent_CIButton_FWD_DEFINED__
+typedef interface __x_ABI_CComponent_CIButton __x_ABI_CComponent_CIButton;
 
-#endif // ____x_Component_CIButton_FWD_DEFINED__
+#endif // ____x_ABI_CComponent_CIButton_FWD_DEFINED__
 
 
 
@@ -170,84 +175,84 @@ typedef interface __x_Component_CIButton __x_Component_CIButton;
  *
  *
  */
-#if !defined(____x_Component_CIButton_INTERFACE_DEFINED__)
-#define ____x_Component_CIButton_INTERFACE_DEFINED__
+#if !defined(____x_ABI_CComponent_CIButton_INTERFACE_DEFINED__)
+#define ____x_ABI_CComponent_CIButton_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Component_IButton[] = L"Component.IButton";
 /* [object, exclusiveto, uuid("461c8806-8bc2-4622-8eac-b547c39f867e"), version] */
-typedef struct __x_Component_CIButtonVtbl
+typedef struct __x_ABI_CComponent_CIButtonVtbl
 {
     BEGIN_INTERFACE
     HRESULT ( STDMETHODCALLTYPE *QueryInterface)(
-    __RPC__in __x_Component_CIButton * This,
+    __RPC__in __x_ABI_CComponent_CIButton * This,
     /* [in] */ __RPC__in REFIID riid,
     /* [annotation][iid_is][out] */
     _COM_Outptr_  void **ppvObject
     );
 
 ULONG ( STDMETHODCALLTYPE *AddRef )(
-    __RPC__in __x_Component_CIButton * This
+    __RPC__in __x_ABI_CComponent_CIButton * This
     );
 
 ULONG ( STDMETHODCALLTYPE *Release )(
-    __RPC__in __x_Component_CIButton * This
+    __RPC__in __x_ABI_CComponent_CIButton * This
     );
 
 HRESULT ( STDMETHODCALLTYPE *GetIids )(
-    __RPC__in __x_Component_CIButton * This,
+    __RPC__in __x_ABI_CComponent_CIButton * This,
     /* [out] */ __RPC__out ULONG *iidCount,
     /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*iidCount) IID **iids
     );
 
 HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )(
-    __RPC__in __x_Component_CIButton * This,
+    __RPC__in __x_ABI_CComponent_CIButton * This,
     /* [out] */ __RPC__deref_out_opt HSTRING *className
     );
 
 HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )(
-    __RPC__in __x_Component_CIButton * This,
+    __RPC__in __x_ABI_CComponent_CIButton * This,
     /* [OUT ] */ __RPC__out TrustLevel *trustLevel
     );
 /* [propget] */HRESULT ( STDMETHODCALLTYPE *get_Text )(
-        __x_Component_CIButton * This,
+        __x_ABI_CComponent_CIButton * This,
         /* [retval, out] */HSTRING * value
         );
     END_INTERFACE
     
-} __x_Component_CIButtonVtbl;
+} __x_ABI_CComponent_CIButtonVtbl;
 
-interface __x_Component_CIButton
+interface __x_ABI_CComponent_CIButton
 {
-    CONST_VTBL struct __x_Component_CIButtonVtbl *lpVtbl;
+    CONST_VTBL struct __x_ABI_CComponent_CIButtonVtbl *lpVtbl;
 };
 
 #ifdef COBJMACROS
-#define __x_Component_CIButton_QueryInterface(This,riid,ppvObject) \
+#define __x_ABI_CComponent_CIButton_QueryInterface(This,riid,ppvObject) \
 ( (This)->lpVtbl->QueryInterface(This,riid,ppvObject) )
 
-#define __x_Component_CIButton_AddRef(This) \
+#define __x_ABI_CComponent_CIButton_AddRef(This) \
         ( (This)->lpVtbl->AddRef(This) )
 
-#define __x_Component_CIButton_Release(This) \
+#define __x_ABI_CComponent_CIButton_Release(This) \
         ( (This)->lpVtbl->Release(This) )
 
-#define __x_Component_CIButton_GetIids(This,iidCount,iids) \
+#define __x_ABI_CComponent_CIButton_GetIids(This,iidCount,iids) \
         ( (This)->lpVtbl->GetIids(This,iidCount,iids) )
 
-#define __x_Component_CIButton_GetRuntimeClassName(This,className) \
+#define __x_ABI_CComponent_CIButton_GetRuntimeClassName(This,className) \
         ( (This)->lpVtbl->GetRuntimeClassName(This,className) )
 
-#define __x_Component_CIButton_GetTrustLevel(This,trustLevel) \
+#define __x_ABI_CComponent_CIButton_GetTrustLevel(This,trustLevel) \
         ( (This)->lpVtbl->GetTrustLevel(This,trustLevel) )
 
-#define __x_Component_CIButton_get_Text(This,value) \
+#define __x_ABI_CComponent_CIButton_get_Text(This,value) \
     ( (This)->lpVtbl->get_Text(This,value) )
 
 
 #endif /* COBJMACROS */
 
 
-EXTERN_C const IID IID___x_Component_CIButton;
-#endif /* !defined(____x_Component_CIButton_INTERFACE_DEFINED__) */
+EXTERN_C const IID IID___x_ABI_CComponent_CIButton;
+#endif /* !defined(____x_ABI_CComponent_CIButton_INTERFACE_DEFINED__) */
 
 
 /*
