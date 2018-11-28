@@ -53,7 +53,7 @@ void sample()
 
     winrt::com_ptr<abi::IUriRuntimeClass> ptr = cpp.as<abi::IUriRuntimeClass>();
     winrt::hstring domain;
-    winrt::check_hresult(ptr->get_Domain(put_abi(domain)));
+    winrt::check_hresult(ptr->get_Domain(reinterpret_cast<HSTRING*>(put_abi(domain))));
     printf("ABI: %ls\n", domain.c_str());
 
     winrt::Uri cpp_from_cx = from_cx<winrt::Uri>(cx);

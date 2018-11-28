@@ -7,3 +7,5 @@ Generated Files
 *.dll
 *.winmd
 *.user
+.vs/
+x64/

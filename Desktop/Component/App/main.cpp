@@ -55,7 +55,7 @@ HRESULT __stdcall WINRT_RoGetActivationFactory(HSTRING classId, GUID const& iid,
         return hr;
     }
 
-    if (iid != winrt::guid_of<winrt::Windows::Foundation::IActivationFactory>())
+    if (iid != static_cast<GUID>(winrt::guid_of<winrt::Windows::Foundation::IActivationFactory>()))
     {
         return activation_factory->QueryInterface(iid, factory);
     }

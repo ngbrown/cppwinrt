@@ -34,5 +34,8 @@ int main()
     catch (hresult_error const & e)
     {
         printf("hresult_error: (0x%8X) %ls\n", e.code(), e.message().c_str());
+		return e.code();
     }
+
+	return 0;
 }

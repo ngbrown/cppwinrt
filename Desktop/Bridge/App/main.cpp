@@ -25,4 +25,5 @@ int main()
         printf("You need to launch via the Package app. :)\n");
         printf("%ls\n", e.message().c_str());
     }
+	std::getchar();
 }
